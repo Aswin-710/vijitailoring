@@ -1,0 +1,36 @@
+<%-  include('partials/_header'); %>
+<div class="container-fluid" style="margin-top: 150px;">
+    <div class="row h-100 align-items-center justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+            <div class="rounded p-4 p-sm-5 my-4 mx-3">
+                <div class="text-center mb-12">
+                    <span class="d-inline-block d-lg-block h1 mb-lg-6 me-3">👋</span>
+                    <h1 class="ls-tight font-bolder h2">
+                    Welcome back!
+                    </h1>
+                    <p class="mt-2"></p>
+                </div>
+                <figure class="text-center">
+                    <blockquote class="blockquote">
+                        <p>Tailoring Measurement Application</p>
+                    </blockquote>
+                </figure>
+                <!-- Actions -->
+                <form class="form-floating" action="/login" method="POST">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" name="username" placeholder="     ">
+                        <label for="floatingInput" id="floatingInputLabel">Username</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="*********" >
+                        <label for="floatingPassword" id="floatingPasswordLabel">Password</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary py-3 w-full mb-4 ">login</button>
+                    <p class="text-center mb-0">Don't have an Account? <a href="/register" class="text-warning">Register</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/_footer'); %>

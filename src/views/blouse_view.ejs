@@ -1,0 +1,108 @@
+<%-  include('partials/_header'); %>
+<%-  include('partials/_navbar'); %>
+<header class="pt-10 bg-primary fixed-top" style="margin-top: 72px;">
+    <div class="container-xl">
+      <div class="row">
+        <!-- Order Column -->
+        <div class="col text-center" >
+          <a href="/customerview" class=" d-inline-flex font-bold text-white">
+            <span>Back</span>
+          </a>
+        </div>
+        <!-- Customer Column -->
+        <div class="col text-center" style="background-color: #ffffff; border-radius: 19px;">
+          <a href="#" class="btn d-inline-flex font-bold">
+            <span>Blouse Measurement</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Divider -->
+    <div class="container-xl">
+      <div class="row justify-content-center">
+        <div class="col-6" style="position: relative;">
+          <!-- Avatar -->
+          <div class="text-center" style="position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);">
+            <a class="d-block" href="/customerview" role="button">
+              <div class="avatar avatar-lg bg-primary rounded-circle text-white text-lg">
+                <h2><i class="bi bi-arrow-left text-white"></i></h2>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- Main -->
+<main class="py-6 bg-white" style="margin-top: 202px;">
+    <div class="container-fluid">
+        <div class="card shadow border-0 mb-7">
+            <div class="card-header">
+                <h5 class="mb-0">Blouse Details</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover table-nowrap table-sm">
+                    <tbody>
+                        <% if (data1) { %>
+                        <tr>
+                            <th scope="row">Customer ID</th>
+                            <td><%= data1.customer_id %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">length</th>
+                        <td><%= data1.length %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">chest</th>
+                        <td><%= data1.chest %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Shoulder Finish</th>
+                        <td><%= data1.shoulder_finish %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Sleve Length</th>
+                        <td><%= data1.sleeve_length %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Sleve Round</th>
+                        <td><%= data1.sleeve_round %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Middle Handround</th>
+                        <td><%= data1.middle_hand_round %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Frontneck Height</th>
+                        <td><%= data1.front_neck_height %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Backneck Round</th>
+                        <td><%= data1.back_neck_round %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Waist Loose</th>
+                        <td><%= data1.waist_loose %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Front Dartpoint</th>
+                        <td><%= data1.front_dart_point %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Full Shoulder</th>
+                        <td><%= data1.full_shoulder %></td>
+                        </tr>
+                        <td class="text-end">
+                            <a href="/delete1/<%= data1.customer_id %>" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                        </td>
+                        <% } else { %>
+                            <th>No data found for the provided customer ID.</th>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/_footer'); %>

@@ -1,0 +1,96 @@
+<%-  include('partials/_header'); %>
+<%-  include('partials/_navbar'); %>
+<header class="pt-10 bg-primary fixed-top" style="margin-top: 72px;">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col text-center" >
+        <a href="/" class=" d-inline-flex font-bold text-white">
+          <span>Back</span>
+        </a>
+      </div>
+      <div class="col text-center" style="background-color: #ffffff; border-radius: 19px;">
+        <a href="#" class="btn d-inline-flex font-bold">
+          <span>Edit Order</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container-xl">
+    <div class="row justify-content-center">
+      <div class="col-6" style="position: relative;">
+        <div class="text-center" style="position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);">
+          <a class="d-block" href="/" role="button">
+            <div class="avatar avatar-lg bg-primary rounded-circle text-white text-lg">
+              <h2><i class="bi bi-arrow-left text-white"></i></h2>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="py-10" style="margin-top: 202px;">
+  <div class="container-xl">
+    <div class="mb-5">
+        <h5 class="mb-0">Order Information</h5>
+      </div>
+      <form action="/update4/<%= data.id %>" class="mb-6" method="POST">
+        <input type="hidden" class="form-control" name="customer_id" value="<%= data4.customer_id %>">
+        <div class="row mb-5">
+          <div class="col-md-6">
+            <div class="">
+              <label class="form-label" for="dresstype">Dress Type:</label>
+              <select class="form-select" id="dresstype" name="dress_type" aria-label="Dress Type">
+                <option value="" <% if (!data4.dress_type) { %>selected<% } %> disabled>Select Dress Type</option>
+                <option value="blouse" <% if (data4.dress_type === 'blouse') { %>selected<% } %>>Blouse</option>
+                <option value="chudi" <% if (data4.dress_type === 'chudi') { %>selected<% } %>>Chudi</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row g-5">
+          <div class="col-md-3">
+            <div class="">
+              <label class="form-label" for="booking_date">Booking Date:</label>
+              <input type="date" class="form-control" id="booking_date" name="booking_date" value="<%= data4.booking_date ? data4.booking_date.toISOString().split('T')[0] : '' %>"">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="">
+              <label class="form-label" for="deadline">Deadline:</label>
+              <input type="date" class="form-control" id="deadline" name="deadline" value="<%= data4.deadline ? data4.deadline.toISOString().split('T')[0] : '' %>"">
+            </div>
+          </div>
+          <div class="row g-5">
+            <div class="col-md-6">
+              <div class="">
+                <label class="form-label" for="description">Description:</label>
+                <input type="text" class="form-control" id="description" name="description" value="<%= data4.description %>">
+              </div>
+            </div>
+          </div>
+          <div class="row g-5">
+            <div class="col-md-4">
+                <div class="">
+                <label class="form-label" for="price">Price:</label>
+                <input type="text" class="form-control" id="price" name="price" value="<%= data4.price %>">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="">
+                <label class="form-label" for="paid">Paid:</label>
+                <input type="text" class="form-control" id="paid" name="paid" value="<%= data4.paid %>">
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-end">
+          <button type="submit" class="avatar avatar-lg btn-primary rounded-circle text-lg">
+            <h2><i class="bi bi-check2 text-white"></i></h2></button>
+        </div>
+      </form>
+  </div>
+  </div>
+</main>
+<%- include('partials/_footer'); %>

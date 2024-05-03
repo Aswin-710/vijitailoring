@@ -1,0 +1,148 @@
+<%-  include('partials/_header'); %>
+<%-  include('partials/_navbar'); %>
+<header class="pt-10 bg-primary fixed-top" style="margin-top: 72px;">
+    <div class="container-xl">
+      <div class="row">
+        <!-- Order Column -->
+        <div class="col text-center" >
+          <a href="/customerview" class=" d-inline-flex font-bold text-white">
+            <span>Back</span>
+          </a>
+        </div>
+        <!-- Customer Column -->
+        <div class="col text-center" style="background-color: #ffffff; border-radius: 19px;">
+          <a href="#" class="btn d-inline-flex font-bold">
+            <span>Chudi Measurement</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Divider -->
+    <div class="container-xl">
+      <div class="row justify-content-center">
+        <div class="col-6" style="position: relative;">
+          <!-- Avatar -->
+          <div class="text-center" style="position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);">
+            <a class="d-block" href="/customerview" role="button">
+              <div class="avatar avatar-lg bg-primary rounded-circle text-white text-lg">
+                <h2><i class="bi bi-arrow-left text-white"></i></h2>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- Main -->
+<main class="py-6 bg-surface-secondary" style="margin-top: 202px;">
+    <div class="container-fluid">
+        <div class="card shadow border-0 mb-7">
+            <div class="card-header">
+                <h5 class="mb-0">Chudi Details</h5>
+            </div>
+            <div class="table-responsive">
+                <div class="card-header">
+                    <h6 class="mb-0">Top Size</h6>
+                </div>
+                <table class="table table-hover table-nowrap table-sm">
+                    <tbody>
+                        <% if (data2) { %>
+                        <tr>
+                            <th scope="row">Customer ID</th>
+                            <td><%= data2.customer_id %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Height</th>
+                        <td><%= data2.height %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Front Pointcenter</th>
+                        <td><%= data2.front_point_center %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Bodyloose</th>
+                        <td><%= data2.body_loose %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Hiploose</th>
+                        <td><%= data2.hip_loose %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Firstlow Hip Height</th>
+                        <td><%= data2.first_low_hip_height %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Firstlow Hiploose</th>
+                        <td><%= data2.first_low_hip_loose %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Bottom Open from Top</th>
+                        <td><%= data2.bottom_open_from_top %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Secondlow Hiploose</th>
+                        <td><%= data2.second_low_hip_loose %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Front Neck Height</th>
+                        <td><%= data2.front_neck_height %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Backneck Height</th>
+                        <td><%= data2.back_neck_height %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Hand Height</th>
+                        <td><%= data2.hand_height %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Middlehand Loose</th>
+                        <td><%= data2.middle_hand_loose %></td>
+                        </tr>
+                        <% } else { %>
+                            <th>No data found for the provided customer ID.</th>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-responsive">
+                <div class="card-header">
+                    <h6 class="mb-0">Pant Size</h6>
+                </div>
+                <table class="table table-hover table-nowrap table-sm">
+                    <tbody>
+                        <% if (data2) { %>
+                        <tr>
+                        <th scope="row">Pant Height</th>
+                        <td><%= data2.pant_height %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Seat Loose</th>
+                        <td><%= data2.seat_loose %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Bottom Loose</th>
+                        <td><%= data2.bottom_loose %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Body to KneeHeight</th>
+                        <td><%= data2.body_to_knee_height %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Knee Loose</th>
+                        <td><%= data2.knee_loose %></td>
+                        </tr>
+                        <td class="text-end">
+                            <a href="/delete2/<%= customerId %>" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                        </td>
+                        <% } else { %>
+                            <th>No data found for the provided customer ID.</th>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>    
+
+<%- include('partials/_footer'); %>

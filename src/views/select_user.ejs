@@ -1,0 +1,73 @@
+<%-  include('partials/_header'); %>
+<%-  include('partials/_navbar'); %>
+<header class="pt-10 bg-primary fixed-top" style="margin-top: 72px;">
+    <div class="container-xl">
+      <div class="row">
+        <div class="col text-center" style="background-color: #ffffff; border-radius: 19px;">
+          <a href="/selectuser" class="btn d-inline-flex font-bold ">
+            <span>Select Customer</span>
+          </a>
+        </div>
+        <div class="col text-center">
+          <a href="/customer" class="d-inline-flex text-white font-bold">
+            <span>New Customer</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container-xl">
+      <div class="row justify-content-center">
+        <div class="col-6" style="position: relative;">
+          <div class="text-center" style="position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);">
+            <a class="d-block" href="/customer" role="button">
+              <div class="avatar avatar-lg bg-primary rounded-circle text-white text-lg">
+                <h2><i class="bi bi-person-plus text-white"></i></h2>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<main class="py-10" style="margin-top: 202px;">
+  <div class="container-xl">
+    <% if (data) { %>
+      <% for(var i = 0; i < data.length; i++) { %>
+    <div class="card shadow border-0 mt-4 mb-10">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div>
+            <div class="d-flex align-items-center">
+                <%
+                var colors = ['success', 'danger', 'warning', 'info'];
+                colors.sort(() => Math.random() - 0.5);
+                var colorIndex = i % colors.length;
+                var bgColorClass = 'bg-' + colors[colorIndex];
+                %>
+                <div class="icon icon-shape <%= bgColorClass %> text-white text-lg rounded-circle">
+                    <%= data[i].name.charAt(0).toUpperCase() %>
+                </div>
+              <div class="ms-4">
+                <span class="h4 d-block mb-0"><%= data[i].name %></span>
+                <span class="text-sm font-semibold text-muted"><%= data[i].phone %></a>
+              </div>
+            </div>
+          </div>
+          <div class="ms-auto">
+            <a href="/order?customerId=<%= data[i].customer_id %>">
+            <button type="button" class="btn btn-sm btn-neutral">
+              <span class=" pe-2">
+                <i class="bi bi-minecart"></i>
+              </span>
+              <span>order</span>
+            </button>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% } %>
+    <% } %>
+  </div>
+</main>
+<%- include('partials/_footer'); %>

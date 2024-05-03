@@ -1,0 +1,99 @@
+<%-  include('partials/_header'); %>
+<%-  include('partials/_navbar'); %>
+<header class="pt-10 bg-primary fixed-top" style="margin-top: 72px;">
+    <div class="container-xl">
+      <div class="row">
+        <!-- Order Column -->
+        <div class="col text-center" >
+          <a href="/customerview" class=" d-inline-flex font-bold text-white">
+            <span>Back</span>
+          </a>
+        </div>
+        <!-- Customer Column -->
+        <div class="col text-center" style="background-color: #ffffff; border-radius: 19px;">
+          <a href="#" class="btn d-inline-flex font-bold">
+            <span>New Blouse</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Divider -->
+    <div class="container-xl">
+      <div class="row justify-content-center">
+        <div class="col-6" style="position: relative;">
+          <!-- Avatar -->
+          <div class="text-center" style="position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);">
+            <a class="d-block" href="/customerview" role="button">
+              <div class="avatar avatar-lg bg-primary rounded-circle text-white text-lg">
+                <h2><i class="bi bi-arrow-left text-white"></i></h2>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+    <!-- Main content -->
+    <main class="py-10" style="margin-top: 202px;">
+      <!-- Container -->
+      <div class="container-xl">
+        <!-- Form -->
+        <div class="mb-5">
+            <h5 class="mb-0">Blouse Information</h5>
+          </div>
+          <form class="form-floating mb-6 row g-3" action="/add1" method="post">
+            <!-- Hidden input field to store customerId -->
+            <input type="hidden" name="customer_id" id="customer_id" value="<%= customerId %>">
+            <div class="form-floating col-md-3">
+                <input type="text" name="length" id="floatingInput" placeholder="  " class="form-control" >
+                <label for="floatingInput" id="floatingInputLabel">Length</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="chest" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Chest</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="shoulder_finish" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Shoulder Finish</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="sleeve_length" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Sleve Length</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="sleeve_round" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Sleve Round</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="middle_hand_round" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Middle Handround</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="front_neck_height" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Frontneck Height</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="back_neck_round" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Backneck Round</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="waist_loose" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Waist Loose</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="front_dart_point" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Front Dartpoint</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="full_shoulder" id="floatingInput" placeholder="  " class="form-control">
+                <label for="floatingInput" id="floatingInputLabel">Full Shoulder</label>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="avatar avatar-lg btn-primary rounded-circle text-lg">
+                  <h2><i class="bi bi-check2 text-white"></i></h2></button>
+              </div>
+          </form>
+        </div>
+    </div>
+    </main>
+<%- include('partials/_footer'); %>

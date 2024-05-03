@@ -1,0 +1,73 @@
+<%-  include('partials/_header'); %>
+<%-  include('partials/_navbar'); %>
+<header class="pt-10 bg-primary fixed-top" style="margin-top: 72px;">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col text-center" style="background-color: #ffffff; border-radius: 19px;">
+        <a href="/ %>" class="btn d-inline-flex font-bold ">
+          <span>Order</span>
+        </a>
+      </div>
+      <div class="col text-center">
+        <a href="/customerview %>" class="d-inline-flex text-white font-bold">
+          <span>Customer</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container-xl">
+    <div class="row justify-content-center">
+      <div class="col-6" style="position: relative;">
+        <div class="text-center" style="position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);">
+          <a class="d-block" href="/selectuser %>" role="button">
+            <div class="avatar avatar-lg bg-primary rounded-circle text-white text-lg">
+              <h2><i class="bi bi-plus text-white"></i></h2>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="container-fluid py-10" style="margin-top: 202px;">
+  <div class="container-xl">
+    <% if (data) { %>
+      <% for(var i = 0; i < data.length; i++) { %>
+    <div class="row g-6 mb-6">
+      <a href="/orderview?orderId=<%= data[i].order_id %>">
+          <div class="col-xl-12 col-sm-12 col-12">
+          <div class="card shadow border-0 mt-4 mb-4">
+              <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                  <span class="h5 font-bold mb-0"><%= data[i].customer_name %></span>
+                  <span class="h6 font-semibold text-muted text-sm d-block mb-2"><%= data[i].dress_type %></span>
+                  </div>
+                  <div class="col-auto">
+                    <%
+                    var colors = ['success', 'danger', 'warning', 'info'];
+                    colors.sort(() => Math.random() - 0.5);
+                    var colorIndex = i % colors.length;
+                    var bgColorClass = 'bg-' + colors[colorIndex];
+                    %>
+                    <div class="icon icon-shape <%= bgColorClass %> text-white text-lg rounded-circle">
+                        <%= data[i].customer_name.charAt(0).toUpperCase() %>
+                    </div>
+                  </div>
+              </div>
+              <div class="mt-2 mb-0 text-sm">
+                  <span class="badge badge-pill bg-opacity-30 bg-danger text-white me-2">
+                  deadline
+                  </span>
+                  <span class="text-nowrap text-xs text-muted"><%= new Date(data[i].deadline).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) %></span>
+              </div>
+              </div>
+          </div>
+          </div>
+      </a>
+    </div>
+    <% } %>
+    <% } %>
+  </div>
+</main>
+<%- include('partials/_footer'); %>
