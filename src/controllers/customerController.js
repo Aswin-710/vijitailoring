@@ -102,7 +102,7 @@ controller.update = (req, res) => {
                 res.status(500).json(err);
                 return;
             }
-            res.redirect('/');
+            res.redirect('/customerview');
         });
     });
 };

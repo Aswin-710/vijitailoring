@@ -23,7 +23,7 @@ router.get('/chudi', chudiController.list2);
 router.post('/add2', chudiController.save2);
 router.get('/delete2/:id', chudiController.delete2);
 
-router.get('/', orderController.renderDashboard);
+router.get('/dashboard', orderController.renderDashboard);
 router.get('/selectuser', orderController.selectuser);
 router.get('/orderview', orderController.view4);
 router.get('/order', orderController.list4);
@@ -32,7 +32,7 @@ router.get('/update4/:id', orderController.edit4);
 router.post('/update4/:id', orderController.update4);
 router.get('/delete4/:id', orderController.delete4);
 
-router.get('/login', authController.getLogin);
+router.get('/', authController.getLogin);
 router.post('/login', authController.postLogin);
 router.get('/register', authController.getRegister);
 router.post('/register', authController.postRegister);

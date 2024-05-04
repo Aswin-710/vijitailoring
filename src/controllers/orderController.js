@@ -112,7 +112,7 @@ controller4.save4 = (req, res) => {
                 return;
             }
             console.log(result);
-            res.redirect('/');
+            res.redirect('/dashboard');
         });
     });
 };
@@ -159,7 +159,7 @@ controller4.update4 = (req, res) => {
                 return;
             }
             console.log("Update successful:", result);
-            res.redirect('/');
+            res.redirect('/dashboard');
         });
     });
 };
@@ -179,7 +179,7 @@ controller4.delete4 = (req, res) => {
                 return;
             }
             console.log('Deleted records for Order ID:', id);
-            res.redirect('/');
+            res.redirect('/dashboard');
         });
     });
 };

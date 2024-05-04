@@ -108,7 +108,7 @@ controller3.postLogin = (req, res) => {
                 // Login successful
                 console.log('Login successful');
                 req.session.user = results[0];
-                res.redirect('/');
+                res.redirect('/dashboard');
             });
         });
     });
@@ -123,7 +123,7 @@ controller3.logout = (req, res) => {
             console.error('Error destroying session:', err);
             return res.sendStatus(500);
         }
-        res.redirect('/login');
+        res.redirect('/');
     });
 };
 
