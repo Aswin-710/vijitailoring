@@ -37,7 +37,7 @@ app.use(myConnection(mysql, {
 app.use(express.urlencoded({extended: false}));
 
 // routes
-app.use('/', customerRoutes);
+app.use('/login', customerRoutes);
 
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
