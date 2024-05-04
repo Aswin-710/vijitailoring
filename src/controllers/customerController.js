@@ -38,7 +38,7 @@ controller.save = (req, res) => {
             res.json(err);
             return;
         }
-        connection.query('SELECT * FROM Customers WHERE phone = ?', [phoneNumber], (err, results) => {
+        connection.query('SELECT * FROM customers WHERE phone = ?', [phoneNumber], (err, results) => {
             if (err) {
                 res.json(err);
                 return;
@@ -134,7 +134,7 @@ function deleteRelatedRows(connection, tableName, id) {
 }
 function deleteCustomer(connection, id) {
     return new Promise((resolve, reject) => {
-        connection.query('DELETE FROM Customers WHERE customer_id = ?', [id], (err, rows) => {
+        connection.query('DELETE FROM customers WHERE customer_id = ?', [id], (err, rows) => {
             if (err) {
                 return reject(err);
             }

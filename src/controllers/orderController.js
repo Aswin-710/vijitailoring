@@ -8,9 +8,9 @@ controller4.renderDashboard = (req, res) => {
             return;
         }
         conn.query(`
-            SELECT dressbooking.*, Customers.name AS customer_name
+            SELECT dressbooking.*, customers.name AS customer_name
             FROM dressbooking
-            INNER JOIN Customers ON dressbooking.customer_id = Customers.customer_id
+            INNER JOIN customers ON dressbooking.customer_id = customers.customer_id
         `, (err, orders) => {
             if (err) {
                 console.error(err);
@@ -33,9 +33,9 @@ controller4.view4 = (req, res) => {
             return;
         }
         conn.query(`
-            SELECT dressbooking.*, Customers.name AS customer_name, Customers.address, Customers.phone
+            SELECT dressbooking.*, customers.name AS customer_name, customers.address, customers.phone
             FROM dressbooking
-            INNER JOIN Customers ON dressbooking.customer_id = Customers.customer_id
+            INNER JOIN customers ON dressbooking.customer_id = customers.customer_id
             WHERE dressbooking.order_id = ?
         `, [orderId], (err, orders) => {
             if (err) {
@@ -62,7 +62,7 @@ controller4.selectuser = (req, res) => {
             return;
         }
         const customerId = req.query.customeId;
-        conn.query(`SELECT * FROM Customers`, (err, customers) => {
+        conn.query(`SELECT * FROM customers`, (err, customers) => {
             if (err) {
                 res.json(err);
                 return;
